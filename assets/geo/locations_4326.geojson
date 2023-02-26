@@ -1,0 +1,107 @@
+{
+	"type": "FeatureCollection",
+	"name": "locations_4326",
+	"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+	"features": [
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "01",
+				"Name": "Bryn Shandar",
+				"type": "city_b",
+				"description": "\" What's Bryn Shander like, ye ask? It's sixy score humans, packed together like fish in a barrel an' smelling about as sweet. Its roads are paved with the muck o' the cart horses ye're constantly rubbing shoulders with, an' its alehouses are filled with scoundrels that no other city in Faerûn would have. An' after three weeks on Ten Trail. you'll swear there was no lovelier sight!\n\"\n— Beorne Steelstrike"
+			},
+			"geometry": { "type": "Point", "coordinates": [0.017417025111626, -0.021574388360084] }
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "02",
+				"Name": "Targos",
+				"type": "city_m",
+				"description": "\n“\nThe folks in Targos are as hard-headed as the trout in their lake. They'd rather stay shut up behind their walls than admit they need help from anyone. Stubborn an' proud, the lot of'em. Makes a dwarf feel right at home.\n”\n— Beorne Steelstrike"
+			},
+			"geometry": { "type": "Point", "coordinates": [0.015748426118923, -0.020226229658367] }
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "03",
+				"Name": "Bremen",
+				"type": "city_s",
+				"description": "Bremen was the westernmost of the Ten Towns of Icewind Dale. It attracted all manner of gold prospectors, travelers and treasure-hunters."
+			},
+			"geometry": { "type": "Point", "coordinates": [0.014862163332142, -0.019443893452446] }
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "04",
+				"Name": "Termaline",
+				"type": "city_m",
+				"description": "Termalaine was the second-northernmost settlement of Ten Towns, and the third largest in the region in the 1300s. It was thought to be the gem of Icewind Dale; a charming little village surrounded by striking natural beauty. As delightful as it was, the town maintained a bitter fishing rivalry with the walled settlement of Targos."
+			},
+			"geometry": { "type": "Point", "coordinates": [0.019722553625908, -0.017313763004238] }
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "05",
+				"Name": "Lonelywood",
+				"type": "city_s",
+				"description": "Lonelywood was a town in Ten Towns within the cold region of Icewind Dale. It was known as being the \"first choice\" for rogues seeking a refuge in Icewind Dale.\n“\nMost folk in Lonelywood went there tryin' to forget about somethin'... or tryin' to be forgotten. Folks there mind their own business, an' they expect ye to do the same. Surest way to find trouble in that town is to start askin' questions.\n”\n— Beorne Steelstrike"
+			},
+			"geometry": { "type": "Point", "coordinates": [0.018730761350708, -0.016647794184068] }
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "06",
+				"Name": "Caer-Konig",
+				"type": "city_m",
+				"description": "The town straddled the round harbor in a semicircle, with a line of buildings at the edge of the harbor, an uphill slope, and a circular round with buildings."
+			},
+			"geometry": { "type": "Point", "coordinates": [0.025569473428804, -0.01942624474564] }
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "07",
+				"Name": "Caer-Dineval",
+				"type": "city_m",
+				"description": "Caer-Dineval was located on the northwestern bank of Lac Dinneshere, not far south of Caer-Konig. It was situated in a half-circle around Knucklehead Harbor, with the Caer castle overlooking the harbor from the Cliffs of Dinev in the east."
+			},
+			"geometry": { "type": "Point", "coordinates": [0.026858445338811, -0.017557235476129] }
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "08",
+				"Name": "Easthaven",
+				"type": "city_b",
+				"description": "\n“\nThe area of Easthaven is but one of many tiny, frigid villages clinging to survival. They endure, but it is a hard life, and the only war that comes to Easthaven is the battle against the elements.\n”\n— Everard, Trusted Sword, Order of the Broken Blade, Eleint, 1281 DR."
+			},
+			"geometry": { "type": "Point", "coordinates": [0.025253675310852, -0.022453180447641] }
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "09",
+				"Name": "Goodmead",
+				"type": "city_s",
+				"description": "\n“\nCut south off the Eastway after the trees thin out, n' keep walking… that'll be Good Mead.\n”\n\n— Beorne Steelstrike"
+			},
+			"geometry": { "type": "Point", "coordinates": [0.021027995732544, -0.023671258902598] }
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "10",
+				"Name": "Dougan's Hole",
+				"type": "city_s",
+				"description": "Dougan's Hole was the smallest of the Ten Towns in Icewind Dale. It comprised a meager grouping of buildings arranged around a pair of piers, one long and one short."
+			},
+			"geometry": { "type": "Point", "coordinates": [0.018930193949006, -0.024874299351938] }
+		}
+	]
+}

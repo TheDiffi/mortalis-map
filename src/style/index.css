@@ -1,0 +1,108 @@
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	font-family: 'Raleway', sans-serif;
+}
+.wrapper {
+	width: 100vw;
+	height: 100vh;
+}
+
+.layout-container {
+	width: inherit;
+	height: inherit;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+}
+
+#marker-input-container{ 
+    position: fixed; 
+    bottom:0%;
+    width:inherit; 
+    background-color: #393838; 
+    opacity: 1;
+	padding: 10px;
+	color: aliceblue;
+}
+
+.marker-input-element{
+	font-weight: bold;
+	
+}
+
+.section {
+	position: relative;
+	transition: 0.5s ease;
+	background-color: rgb(235, 223, 195);
+	width: inherit;
+	height: inherit;
+}
+
+
+
+.info-container {
+	flex: 2;
+	max-width: 700px;
+	min-width: 300px;
+	overflow: auto;
+
+}
+
+#sidebar-content {
+	padding: 80px 50px 30px;
+}
+
+/* .info-container:hover, :active, :focus {
+  flex:2
+}  */
+
+.map-container {
+	flex: 6;
+
+}
+
+.container {
+	stroke: black;
+}
+
+#map {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+}
+
+.mapboxgl-popup {
+	max-width: 400px;
+	font: 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
+	background: url("https://cdn.glitch.com/9c785c08-7e0a-4245-ba71-af9b62f8eca4%2Fpopup.png?v=1588359473867");
+	background-size: 100% 100%;
+	overflow: visible;
+}
+
+.mapboxgl-popup-content {
+	background: none;
+	box-shadow: none;
+	padding: 30px 40px 40px 40px;
+	color: black !important;
+}
+
+.mapbox-control-styles-button  {
+	width: 56px !important;
+}
+
+.mapboxgl-popup-tip {
+	display: none;
+}
+
+.active{
+	background-color: #e0dfdf !important;
+}
+
+.mapboxgl-popup-close-button {
+	top: 10%;
+	right: 10%;
+}
