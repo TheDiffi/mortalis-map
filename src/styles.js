@@ -63,14 +63,14 @@ export function addDEM(map) {
 		// loads the DEM source -> dem
 		map.addSource("dem", {
 			type: "raster-dem",
-			url: "mapbox://thediffi.c0q45d6q",
+			url: "mapbox://thediffi.2pvcnilz",
 		});
 	} catch (error) {
 		console.log("DEM source already loaded" + error);
 	}
 
 	// add the DEM source as a terrain layer with exaggerated height
-	map.setTerrain({ source: "dem", exaggeration: 0.00005 });
+	map.setTerrain({ source: "dem", exaggeration: 0.0002 });
 	console.log("terrain added");
 }
 

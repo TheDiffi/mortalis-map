@@ -31,7 +31,10 @@ export const markerLayers = [
 	},
 ];
 
+const controls = {};
+
 var currentStylename = "Normal";
+const switchToFeetZoomLevel = 15;
 
 export const map = new mapboxgl.Map({
 	accessToken: "pk.eyJ1IjoidGhlZGlmZmkiLCJhIjoiY2xjeGpuYm92MjN4cjNybXNremFtMHd3aiJ9.8QG0LO8bSAfYA0zROCmEmQ",
@@ -49,29 +52,70 @@ map.on("load", function () {
 	loadMapControls(map);
 	generateMarkerInputs();
 
-
 	//setup the style
 	setupStyle(map, currentStylename);
-	
+
 	test();
 });
 
 function loadMapControls() {
 	// with custom styles:
-	map.addControl(
-		new StylesSwitcher({
+	loadStyleSwitcher();
+
+	loadRulerControl();
+
+	function loadStyleSwitcher() {
+		const styleSwitcher = new StylesSwitcher({
 			styles: styles,
 			onChange: (style) => changeStyle(map, style.label),
-		}),
-		"bottom-right"
-	);
+		});
+
+		// removes existing style switcher
+		if ("styleSwitcher" in controls) {
+			map.removeControl(controls["styleSwitcher"]);
+			delete controls["styleSwitcher"];
+		}
+
+		map.addControl(styleSwitcher, "bottom-right");
+		controls["styleSwitcher"] = styleSwitcher;
+	}
+
+	function loadRulerControl() {
+		const ruler = new RulerControl({
+			labelFormat: function formatRulerLength(n) {
+				switch (map.getZoom() < switchToFeetZoomLevel) {
+					case true:
+						return `${n.toFixed(2) * 16} miles`;
+					case false:
+						return `${n.toFixed(2) * 16} feet`;
+					default:
+						console.warn(
+							"Warning: In Ruler Control, mapZoom is neither smaller nor bigger than constant value"
+						);
+						return `${n.toFixed(2) * 16} miles`;
+				}
+			},
+		});
+
+		//removes an existing ruler
+		if ("ruler" in controls) {
+			map.removeControl(controls["ruler"]);
+			delete controls["ruler"];
+		}
+
+		//adds the new control
+		map.addControl(ruler, "top-right");
+		controls["ruler"] = ruler;
+
+		map.on("ruler.on", () => console.log("ruler: on"));
+		map.on("ruler.off", () => console.log("ruler: off"));
+	}
 }
 
 function changeStyle(map, stylename) {
 	console.log("changing style to: " + stylename);
 	currentStylename = stylename;
 	updateStyle(map, stylename);
-	
 }
 
 export function setLayerVisibility(layer, checked) {
@@ -88,8 +132,4 @@ function toggleSidebar() {
 	document.getElementById("sidebar").classList.toggle("disabled");
 }
 
-function test() {
-	map.addControl(new RulerControl(), "top-right");
-	map.on("ruler.on", () => console.log("ruler: on"));
-	map.on("ruler.off", () => console.log("ruler: off"));
-}
+function test() {}
