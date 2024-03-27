@@ -1,11 +1,12 @@
 import mapboxgl from "mapbox-gl";
 import DOMPurify from "dompurify";
 import { marked } from "marked";
-import { markerLayers } from ".";
+import { sidebar } from ".";
+import { MARKER_LAYERS } from "./markers/markerManager";
 
 export function loadPopups(map) {
 	// create a list of all the marker layer names
-	const markerLayerNames = markerLayers.reduce((acc, marker) => {
+	const markerLayerNames = MARKER_LAYERS.reduce((acc, marker) => {
 		acc.push(marker.layerName);
 		return acc;
 	}, []);
@@ -40,8 +41,7 @@ export function loadPopups(map) {
 function markersOnClick(e) {
 	var content = DOMPurify.sanitize(marked.parse(e.features[0].properties.content ?? ""));
 	if (content === "") content = "No information available";
-	document.getElementById("sidebar-content").innerHTML = content;
-	console.log(content);
+	sidebar.setContent(content);
 }
 
 function townsOnClick(e, map) {
@@ -55,7 +55,7 @@ function townsOnClick(e, map) {
 
 	var content = parseContent(e.features[0].properties.Name, e.features[0].properties.description);
 	if (content === "") content = "No information available for this town.";
-	document.getElementById("sidebar-content").innerHTML = content;
+	sidebar.setContent(content);
 }
 
 export function popups(e, map) {

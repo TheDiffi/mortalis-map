@@ -1,7 +1,7 @@
 import Base from "mapbox-gl-controls/lib/Base/Base";
 import Button from "mapbox-gl-controls/lib/Button/Button";
 
-var activeEnum= "style-switcher-active";
+var activeEnum = "style-switcher-active";
 
 export default class StylesSwitcher extends Base {
 	styles;
@@ -32,7 +32,7 @@ export default class StylesSwitcher extends Base {
 			button.addClassName(activeEnum);
 			this.first = false;
 		}
-       
+
 		button.onClick(() => {
 			if (isActive(button)) return;
 			this.map.setStyle(style.styleUrl);

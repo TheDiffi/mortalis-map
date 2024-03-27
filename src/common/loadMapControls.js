@@ -25,7 +25,7 @@ export default function loadMapControls(map, controls, changeStyle) {
 	function loadStyleSwitcher() {
 		const styleSwitcher = new StylesSwitcher({
 			styles: styles,
-			onChange: (style) => changeStyle(map, style.label),
+			onChange: (style) => changeStyle(style.label),
 		});
 
 		// removes existing style switcher
