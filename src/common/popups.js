@@ -1,8 +1,8 @@
 import mapboxgl from "mapbox-gl";
 import DOMPurify from "dompurify";
 import { marked } from "marked";
-import { sidebar } from ".";
-import { MARKER_LAYERS } from "./markers/markerManager";
+import { sidebar } from "..";
+import { MARKER_LAYERS } from "../map/markers/markerManager";
 
 export function loadPopups(map) {
 	// create a list of all the marker layer names
@@ -22,13 +22,13 @@ export function loadPopups(map) {
 	});
 
 	// Change it back to a pointer when it leaves.
-	map.on("mouseleave", markerLayerNames.concat(["cities_layer"]), function () {
+	map.on("mouseleave", markerLayerNames.concat(["cities_layer"]), () => {
 		map.getCanvas().style.cursor = "grab";
 		if (popup) popup.remove();
 	});
 
 	// open the content in the sidebar when a town is clicked
-	map.on("click", "cities_layer", function (e) {
+	map.on("click", "cities_layer", (e) => {
 		townsOnClick(e, map);
 	});
 
@@ -39,9 +39,8 @@ export function loadPopups(map) {
 }
 
 function markersOnClick(e) {
-	var content = DOMPurify.sanitize(marked.parse(e.features[0].properties.content ?? ""));
-	if (content === "") content = "No information available";
-	sidebar.setContent(content);
+	const sanitizedContent = cleanlyParseContent(e.features[0].properties.content ?? "", "No information available");
+	sidebar.setContent(sanitizedContent);
 }
 
 function townsOnClick(e, map) {
@@ -53,9 +52,8 @@ function townsOnClick(e, map) {
 		pitch: 25,
 	});
 
-	var content = parseContent(e.features[0].properties.Name, e.features[0].properties.description);
-	if (content === "") content = "No information available for this town.";
-	sidebar.setContent(content);
+	const sanitizedContent = cleanlyParseContent(e.features[0].properties.content ?? "", "No information available");
+	sidebar.setContent(sanitizedContent);
 }
 
 export function popups(e, map) {
@@ -101,4 +99,9 @@ export function parseContent(name, info) {
 	parsed = "<h2 style='padding-bottom: 5px;'>" + name + "</h2><hr>" ?? "";
 	parsed += "<p>" + info + "</p>" ?? "";
 	return parsed;
+}
+
+function cleanlyParseContent(content, defaultMessage) {
+	const sanitizedContent = DOMPurify.sanitize(marked.parse(content));
+	return sanitizedContent === "" ? defaultMessage : sanitizedContent;
 }

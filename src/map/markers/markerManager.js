@@ -1,4 +1,4 @@
-import markerJson from "../../assets/geo/markers.json";
+import markerJson from "../../../assets/geo/markers.json";
 
 const MARKER_ICON_URL = "https://img.icons8.com/material-rounded/24/null/location-marker.png";
 

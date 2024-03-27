@@ -1,4 +1,4 @@
-import { loadPopups } from "../popups";
+import { loadPopups } from "../common/popups";
 import featuresJson from "../../assets/geo/iwd_features.json";
 
 const loadDem = false;

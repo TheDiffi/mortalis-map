@@ -1,6 +1,6 @@
 import mapboxgl from "mapbox-gl";
-import { setupStyle } from "./common/styles";
-import loadMapControls from "./common/loadMapControls";
+import { setupStyle } from "./styles";
+import loadMapControls from "./loadMapControls";
 import MarkerManager from "./markers/markerManager";
 
 class MapManager {
