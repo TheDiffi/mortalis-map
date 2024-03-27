@@ -78,6 +78,10 @@ class MarkerManager {
 		});
 	};
 
+	isButtonActive = () => {
+		return this.button.classList.contains("active");
+	};
+
 	loadAllMarkers = (map) => {
 		console.log("Loading all markers");
 		this.loadMarkerSymbols(map);
