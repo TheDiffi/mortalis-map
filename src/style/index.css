@@ -32,126 +32,158 @@ body {
 	#sidebar-content {
 		padding: 80px 50px 30px;
 	}
-	
+
 	/* #sidebar:hover, :active, :focus {
 	  flex:2
 	}  */
+}
+
+#toggle-sidebar {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .map-element-bottom-left,
 .map-element-bottom-right,
 .map-element-top-left,
 .map-element-top-right {
- pointer-events:none;
- position:absolute;
- z-index:2
+	pointer-events: none;
+	position: absolute;
+	z-index: 2
 }
+
 .map-element-top-left {
- left:0;
- top:0
+	left: 0;
+	top: 0
 }
+
 .map-element-top-right {
- right:0;
- top:0
+	right: 0;
+	top: 0
 }
+
 .map-element-bottom-left {
- bottom:0;
- left:0
+	bottom: 0;
+	left: 0
 }
+
 .map-element-bottom-right {
- bottom:0;
- right:0
+	bottom: 0;
+	right: 0
 }
+
 .map-element {
- clear:both;
- pointer-events:auto;
- transform:translate(0)
+	clear: both;
+	pointer-events: auto;
+	transform: translate(0)
 }
+
 .map-element-top-left .map-element {
- float:left;
- margin:10px 0 0 10px
+	float: left;
+	margin: 10px 0 0 10px
 }
+
 .map-element-top-right .map-element {
- float:right;
- margin:10px 10px 0 0
+	float: right;
+	margin: 10px 10px 0 0
 }
+
 .map-element-bottom-left .map-element {
- float:left;
- margin:0 0 10px 10px
+	float: left;
+	margin: 0 0 10px 10px
 }
+
 .map-element-bottom-right .map-element {
- float:right;
- margin:0 10px 10px 0
+	float: right;
+	margin: 0 10px 10px 0
 }
+
 .map-element-group {
- background:#fff;
- border-radius:4px
+	background: #fff;
+	border-radius: 4px
 }
+
 .map-element-group:not(:empty) {
- box-shadow:0 0 0 2px rgba(0,0,0,.1)
+	box-shadow: 0 0 0 2px rgba(0, 0, 0, .1)
 }
+
 @media (-ms-high-contrast:active) {
- .map-element-group:not(:empty) {
-  box-shadow:0 0 0 2px ButtonText
- }
+	.map-element-group:not(:empty) {
+		box-shadow: 0 0 0 2px ButtonText
+	}
 }
+
 .map-element-group button {
- background-color:transparent;
- border:0;
- box-sizing:border-box;
- cursor:pointer;
- display:block;
- height:29px;
- outline:none;
- overflow:hidden;
- padding:0;
- width:29px
+	background-color: transparent;
+	border: 0;
+	box-sizing: border-box;
+	cursor: pointer;
+	display: block;
+	height: 29px;
+	outline: none;
+	overflow: hidden;
+	padding: 0;
+	width: 29px
 }
+
 .map-element-group button+button {
- border-top:1px solid #ddd
+	border-top: 1px solid #ddd
 }
+
 .map-element button .map-element-icon {
- background-position:50%;
- background-repeat:no-repeat;
- display:block;
- height:100%;
- width:100%
+	background-position: 50%;
+	background-repeat: no-repeat;
+	display: block;
+	height: 100%;
+	width: 100%
 }
+
 @media (-ms-high-contrast:active) {
- .map-element-icon {
-  background-color:transparent
- }
- .map-element-group button+button {
-  border-top:1px solid ButtonText
- }
+	.map-element-icon {
+		background-color: transparent
+	}
+
+	.map-element-group button+button {
+		border-top: 1px solid ButtonText
+	}
 }
+
 .map-element-attrib-button:focus,
 .map-element-group button:focus {
- box-shadow:0 0 2px 2px #0096ff
+	box-shadow: 0 0 2px 2px #0096ff
 }
+
 .map-element button:disabled {
- cursor:not-allowed
+	cursor: not-allowed
 }
+
 .map-element button:disabled .map-element-icon {
- opacity:.25
+	opacity: .25
 }
+
 .map-element-group button:first-child {
- border-radius:4px 4px 0 0
+	border-radius: 4px 4px 0 0
 }
+
 .map-element-group button:last-child {
- border-radius:0 0 4px 4px
+	border-radius: 0 0 4px 4px
 }
+
 .map-element-group button:only-child {
- border-radius:inherit
+	border-radius: inherit
 }
+
 .map-element button:not(:disabled):hover {
- background-color:rgb(0 0 0/5%)
+	background-color: rgb(0 0 0/5%)
 }
+
 .map-element-group button:focus:focus-visible {
- box-shadow:0 0 2px 2px #0096ff
+	box-shadow: 0 0 2px 2px #0096ff
 }
+
 .map-element-group button:focus:not(:focus-visible) {
- box-shadow:none
+	box-shadow: none
 }
 
 
@@ -173,6 +205,7 @@ body {
 .mapboxgl-popup-content {
 	background: none;
 	box-shadow: none;
+	text-align: center;
 	padding: 30px 40px 40px 40px;
 	color: black !important;
 }

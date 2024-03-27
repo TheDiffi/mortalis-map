@@ -1,16 +1,18 @@
-import { loadPopups } from "./popups";
-import featuresJson from "../assets/geo/iwd_features.json";
-import { loadAllMarkers, updateMarkerLayersVisibility } from "./markers";
+import { loadPopups } from "../popups";
+import featuresJson from "../../assets/geo/iwd_features.json";
+import { loadAllMarkers, updateMarkerLayersVisibility } from "../markers/markers";
+
+const loadDem = false;
 
 export function setupStyle(map, stylename) {
 	console.log("Setting up style: " + stylename);
 	// render the layers
 	switch (stylename) {
 		case "Player":
-			setupStylePlayer(map);
+			setupStylePlayer(map, loadDem);
 			break;
 		default:
-			setupStyleNormal(map);
+			setupStyleNormal(map, loadDem);
 	}
 
 	loadAllMarkers(map);
@@ -25,7 +27,7 @@ export function updateStyle(map, stylename) {
 	});
 }
 
-function setupStyleNormal(map) {
+function setupStyleNormal(map, loadDem) {
 	console.log("Loading Sources: Normal");
 	try {
 		// loads all features -> features
@@ -39,7 +41,7 @@ function setupStyleNormal(map) {
 
 	console.log("Rendering layers: Normal");
 	// loads the 3d terrain
-	addDEM(map);
+	if (loadDem) addDEM(map);
 	// Add daytime fog
 	addFog(map);
 
@@ -50,10 +52,15 @@ function setupStyleNormal(map) {
 	loadPopups(map);
 }
 
-function setupStylePlayer(map) {
+/**
+ * loads the player map style
+ * @param {mapboxgl.Map} map
+ * @param {boolean} loadDem
+ */
+function setupStylePlayer(map, loadDem) {
 	console.log("rendering player layers");
 	// loads the 3d terrain
-	addDEM(map);
+	if (loadDem) addDEM(map);
 	// Add daytime fog
 	addFog(map);
 }
@@ -70,7 +77,7 @@ export function addDEM(map) {
 	}
 
 	// add the DEM source as a terrain layer with exaggerated height
-	map.setTerrain({ source: "dem", exaggeration: 0.0002 });
+	map.setTerrain({ source: "dem", exaggeration: 0.0005 });
 	console.log("terrain added");
 }
 

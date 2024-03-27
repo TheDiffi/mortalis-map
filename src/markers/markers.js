@@ -1,23 +1,21 @@
-import markerJson from "../assets/geo/markers.json";
-import { markerLayers, setLayerVisibility } from "./index";
+import markerJson from "../../assets/geo/markers.json";
+import * as Map from "../index";
 
-//generate a input for each marker
-export function generateMarkerInputs() {
+//generate a button for each marker layer
+export function generateMarkerLayerButtons() {
 	const markerInputs = document.getElementById("marker-input-container");
 
-	markerLayers.forEach((marker) => {
+	Map.markerLayers.forEach((layer) => {
 		const button = document.createElement("button");
-		button.innerText = marker.type;
-		button.value = marker.layerName;
+		button.innerText = layer.type;
+		button.value = layer.layerName;
 		button.classList.add("map-element-marker-button");
 		button.addEventListener("click", () => {
 			button.classList.toggle("active");
-			setLayerVisibility(marker.layerName, isActive(button));
+			Map.setLayerVisibility(layer.layerName, isActive(button));
 		});
 		markerInputs.appendChild(button);
 	});
-
-
 }
 
 function isActive(node) {
@@ -29,48 +27,53 @@ export function updateMarkerLayersVisibility() {
 	const inputGroup = document.getElementById("marker-input-container");
 	inputGroup.childNodes.forEach((btn) => {
 		try {
-			setLayerVisibility(btn.value, isActive(btn));
+			Map.setLayerVisibility(btn.value, isActive(btn));
 		} catch (error) {
 			console.log("LayerVisibilityError: " + error);
 		}
 	});
 }
 
+/**
+
+ * @param {mapboxgl.Map} map
+ * 
+ */
 export function loadAllMarkers(map) {
 	console.log("Loading all markers");
 	loadMarkerSymbols(map);
-	markerLayers.forEach((markerOptions) => {
-		console.log("Loading marker: " + markerOptions.type);
-		loadMarker(map, markerOptions);
+	Map.markerLayers.forEach((layer) => {
+		console.log("Loading marker layer: " + layer.type);
+		loadMarkerLayer(map, layer);
 	});
 }
 
-function loadMarker(map, marker) {
+function loadMarkerLayer(map, layer) {
 	// loads just the markers from the features -> markers
-	const actualMarkers = filterJsonType(markerJson, marker.type);
-	map.addSource(marker.layerName, {
+	const actualMarkers = filterMarkersByType(markerJson, layer.type);
+	map.addSource(layer.layerName, {
 		type: "geojson",
 		data: actualMarkers,
 	});
-	console.log("MarkerJSon: " + marker.type);
+	console.log("MarkerJSon: " + layer.type);
 	console.log(actualMarkers);
-	switch (marker.style) {
+	switch (layer.style) {
 		case "symbol":
 			map.addLayer({
-				id: marker.layerName,
-				type: marker.style,
-				source: marker.layerName,
+				id: layer.layerName,
+				type: layer.style,
+				source: layer.layerName,
 				layout: {
-					"icon-image": marker.symbol,
+					"icon-image": layer.symbol,
 				},
 			});
 			break;
 		case "circle":
 		default:
 			map.addLayer({
-				id: marker.layerName,
-				type: marker.style,
-				source: marker.layerName,
+				id: layer.layerName,
+				type: layer.style,
+				source: layer.layerName,
 				layout: {},
 			});
 			break;
@@ -88,7 +91,12 @@ function loadMarkerSymbols(map) {
 	}
 }
 
-function filterJsonType(geojson, type) {
+/**
+ * filters a geojson by type
+ * @param {JSON} geojson
+ * @param {String} type
+ */
+function filterMarkersByType(geojson, type) {
 	const newJson = {
 		type: "FeatureCollection",
 		features: [],

@@ -23,7 +23,7 @@ export function loadPopups(map) {
 	// Change it back to a pointer when it leaves.
 	map.on("mouseleave", markerLayerNames.concat(["cities_layer"]), function () {
 		map.getCanvas().style.cursor = "grab";
-		if(popup) popup.remove();
+		if (popup) popup.remove();
 	});
 
 	// open the content in the sidebar when a town is clicked
@@ -39,13 +39,12 @@ export function loadPopups(map) {
 
 function markersOnClick(e) {
 	var content = DOMPurify.sanitize(marked.parse(e.features[0].properties.content ?? ""));
-	if(content === "") content = "No information available";
+	if (content === "") content = "No information available";
 	document.getElementById("sidebar-content").innerHTML = content;
-	console.log(content)
+	console.log(content);
 }
 
 function townsOnClick(e, map) {
-	
 	console.log("town clicked");
 	map.flyTo({
 		center: e.features[0].geometry.coordinates,
@@ -55,23 +54,23 @@ function townsOnClick(e, map) {
 	});
 
 	var content = parseContent(e.features[0].properties.Name, e.features[0].properties.description);
-	if(content === "") content = "No information available for this town.";
+	if (content === "") content = "No information available for this town.";
 	document.getElementById("sidebar-content").innerHTML = content;
-	
 }
 
 export function popups(e, map) {
 	if (!e.features[0].properties.popup) return;
+	const feature = e.features[0];
 	// Copy coordinates array.
-	var coordinates = e.features[0].geometry.coordinates.slice();
+	var coordinates = feature.geometry.coordinates.slice();
 
 	//parses the Content
 	var popupContent = "";
-	if (e.features[0].properties.type === "marker") {
-		popupContent = DOMPurify.sanitize(marked.parse(e.features[0].properties.popup_content ?? ""));
-	} else if (e.features[0].layer.id === "cities_layer") {
-		var name = e.features[0].properties.Name;
-		var info = e.features[0].properties.description;
+	if (["session", "marker"].includes(feature.properties.type)) {
+		popupContent = DOMPurify.sanitize(marked.parse(feature.properties.popup_content ?? ""));
+	} else if (feature.layer.id === "cities_layer") {
+		var name = feature.properties.Name;
+		var info = feature.properties.description;
 		popupContent = parseContent(name, info);
 	}
 
@@ -100,6 +99,6 @@ export function popupMath(e, coordinates2) {
 export function parseContent(name, info) {
 	var parsed = "";
 	parsed = "<h2 style='padding-bottom: 5px;'>" + name + "</h2><hr>" ?? "";
-	parsed += "<p>"+ info + "</p>" ?? "";
+	parsed += "<p>" + info + "</p>" ?? "";
 	return parsed;
 }

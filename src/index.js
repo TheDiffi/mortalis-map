@@ -1,22 +1,9 @@
 import mapboxgl from "mapbox-gl";
-import { RulerControl } from "mapbox-gl-controls";
-import { generateMarkerInputs } from "./markers";
-import { updateStyle, setupStyle } from "./styles";
-import StylesSwitcher from "./stylesSwitcher";
-export const styles = [
-	{
-		label: "Normal",
-		styleName: "Normal",
-		styleUrl: "mapbox://styles/thediffi/cld7hz283000j01ockqljc73u",
-	},
-	{
-		label: "Player",
-		styleName: "Player",
-		styleUrl: "mapbox://styles/thediffi/cleizzrd3000601nvl3tlp6q3",
-	},
-];
+import { generateMarkerLayerButtons } from "./markers/markers";
+import { updateStyle, setupStyle } from "./common/styles";
+import loadMapControls from "./common/loadMapControls";
 
-export const markerLayers = [
+const markerLayers = [
 	{
 		type: "marker",
 		style: "symbol",
@@ -25,18 +12,16 @@ export const markerLayers = [
 	},
 	{
 		type: "session",
-		style: "circle",
+		style: "symbol",
 		symbol: "marker-sb-1",
 		layerName: "markers2",
 	},
 ];
 
 const controls = {};
-
 var currentStylename = "Normal";
-const switchToFeetZoomLevel = 15;
 
-export const map = new mapboxgl.Map({
+const map = new mapboxgl.Map({
 	accessToken: "pk.eyJ1IjoidGhlZGlmZmkiLCJhIjoiY2xjeGpuYm92MjN4cjNybXNremFtMHd3aiJ9.8QG0LO8bSAfYA0zROCmEmQ",
 	container: "map", // container ID
 	style: "mapbox://styles/thediffi/cld7hz283000j01ockqljc73u", // style URL
@@ -49,66 +34,23 @@ export const map = new mapboxgl.Map({
 
 map.on("load", function () {
 	// render map controls
-	loadMapControls(map);
-	generateMarkerInputs();
+	loadMapControls(map, controls);
+	generateMarkerLayerButtons();
 
 	//setup the style
-	setupStyle(map, currentStylename);
+	setupStyle(map, currentStylename, changeStyle);
 
 	test();
 });
 
-function loadMapControls() {
-	// with custom styles:
-	loadStyleSwitcher();
+function test() {}
 
-	loadRulerControl();
-
-	function loadStyleSwitcher() {
-		const styleSwitcher = new StylesSwitcher({
-			styles: styles,
-			onChange: (style) => changeStyle(map, style.label),
-		});
-
-		// removes existing style switcher
-		if ("styleSwitcher" in controls) {
-			map.removeControl(controls["styleSwitcher"]);
-			delete controls["styleSwitcher"];
-		}
-
-		map.addControl(styleSwitcher, "bottom-right");
-		controls["styleSwitcher"] = styleSwitcher;
-	}
-
-	function loadRulerControl() {
-		const ruler = new RulerControl({
-			labelFormat: function formatRulerLength(n) {
-				switch (map.getZoom() < switchToFeetZoomLevel) {
-					case true:
-						return `${n.toFixed(2) * 16} miles`;
-					case false:
-						return `${n.toFixed(2) * 16} feet`;
-					default:
-						console.warn(
-							"Warning: In Ruler Control, mapZoom is neither smaller nor bigger than constant value"
-						);
-						return `${n.toFixed(2) * 16} miles`;
-				}
-			},
-		});
-
-		//removes an existing ruler
-		if ("ruler" in controls) {
-			map.removeControl(controls["ruler"]);
-			delete controls["ruler"];
-		}
-
-		//adds the new control
-		map.addControl(ruler, "top-right");
-		controls["ruler"] = ruler;
-
-		map.on("ruler.on", () => console.log("ruler: on"));
-		map.on("ruler.off", () => console.log("ruler: off"));
+function setLayerVisibility(layer, checked) {
+	console.log("updating layer visibility: " + layer + " " + checked);
+	if (checked) {
+		map.setLayoutProperty(layer, "visibility", "visible");
+	} else {
+		map.setLayoutProperty(layer, "visibility", "none");
 	}
 }
 
@@ -118,18 +60,9 @@ function changeStyle(map, stylename) {
 	updateStyle(map, stylename);
 }
 
-export function setLayerVisibility(layer, checked) {
-	console.log("updating layer visibility: " + layer + " " + checked);
-	if (checked) {
-		map.setLayoutProperty(layer, "visibility", "visible");
-	} else {
-		map.setLayoutProperty(layer, "visibility", "none");
-	}
-}
-
 document.getElementById("toggle-sidebar").addEventListener("click", toggleSidebar);
 function toggleSidebar() {
 	document.getElementById("sidebar").classList.toggle("disabled");
 }
 
-function test() {}
+export { markerLayers, map, changeStyle, setLayerVisibility };
