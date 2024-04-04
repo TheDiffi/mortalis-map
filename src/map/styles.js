@@ -1,7 +1,8 @@
 import { loadPopups } from "../common/popups";
 import featuresJson from "../../assets/geo/iwd_features.json";
+import { SOURCE_URLS } from "../constants";
 
-const loadDem = false;
+const loadDem = true;
 
 /**
  * @param {mapboxgl.Map} mapbox
@@ -68,14 +69,14 @@ export function addDEM(mapbox) {
 		// loads the DEM source -> dem
 		mapbox.addSource("dem", {
 			type: "raster-dem",
-			url: "mapbox://thediffi.2pvcnilz",
+			url: SOURCE_URLS.HM_POW22_GRAY,
 		});
 	} catch (error) {
 		console.log("DEM source already loaded" + error);
 	}
 
 	// add the DEM source as a terrain layer with exaggerated height
-	mapbox.setTerrain({ source: "dem", exaggeration: 0.0005 });
+	mapbox.setTerrain({ source: "dem", exaggeration: 0.0002 });
 	console.log("terrain added");
 }
 
