@@ -18,6 +18,9 @@ export function setupStyle(mapbox, stylename, markerManager) {
 		case "Player":
 			setupStylePlayer(mapbox, loadDem);
 			break;
+		case "Normal":
+			setupStyleNormal(mapbox, loadDem);
+			break;
 		default:
 			setupStyleNormal(mapbox, loadDem);
 	}

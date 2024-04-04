@@ -39,11 +39,8 @@ class MapManager {
 
 	setLayerVisibility = (layer, checked) => {
 		console.log("updating layer visibility: " + layer + " " + checked);
-		if (checked) {
-			this.mapbox.setLayoutProperty(layer, "visibility", "visible");
-		} else {
-			this.mapbox.setLayoutProperty(layer, "visibility", "none");
-		}
+		const visibility = checked ? "visible" : "none";
+		this.mapbox.setLayoutProperty(layer, "visibility", visibility);
 	};
 
 	changeStyle = (stylename) => {

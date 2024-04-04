@@ -78,8 +78,8 @@ class MarkerManager {
 		});
 	};
 
-	isButtonActive = () => {
-		return this.button.classList.contains("active");
+	isButtonActive = (btn) => {
+		return btn.classList.contains("active");
 	};
 
 	loadAllMarkers = (map) => {
