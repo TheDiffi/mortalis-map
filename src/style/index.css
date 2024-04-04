@@ -1,3 +1,7 @@
+:root{
+	--main-color-1 : #a6b2de;
+}
+
 body {
 	margin: 0;
 	padding: 0;
@@ -110,7 +114,7 @@ body {
 
 @media (-ms-high-contrast:active) {
 	.map-element-group:not(:empty) {
-		box-shadow: 0 0 0 2px ButtonText
+		box-shadow: 0 0 0 2px;
 	}
 }
 
@@ -145,7 +149,7 @@ body {
 	}
 
 	.map-element-group button+button {
-		border-top: 1px solid ButtonText
+		border-top: 1px solid;
 	}
 }
 
@@ -234,4 +238,8 @@ body {
 .mapboxgl-popup-close-button {
 	top: 10%;
 	right: 10%;
+}
+
+.mapbox-control-ruler .-active {
+	background-color: var(--main-color-1) !important;
 }

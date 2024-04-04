@@ -1,5 +1,7 @@
 import { RulerControl } from "mapbox-gl-controls";
 import StylesSwitcher from "./stylesSwitcher";
+import { TO_METER as MAPBOX_TO_MILES } from "../constants";
+import { LengthConverter } from "./lengthConverter";
 
 export const styles = [
 	{
@@ -14,7 +16,7 @@ export const styles = [
 	},
 ];
 
-const switchToFeetZoomLevel = 15;
+const switchToFeetZoomLevel = 16;
 
 export default function loadMapControls(map, controls, changeStyle) {
 	// with custom styles:
@@ -41,18 +43,18 @@ export default function loadMapControls(map, controls, changeStyle) {
 	function loadRulerControl() {
 		const ruler = new RulerControl({
 			labelFormat: function formatRulerLength(n) {
+				const miles = n.toFixed(2) * MAPBOX_TO_MILES;
+				const unitConverter = new LengthConverter(miles, "miles");
 				switch (map.getZoom() < switchToFeetZoomLevel) {
 					case true:
-						return `${n.toFixed(2) * 16} miles`;
+						return `${unitConverter.toKilometers(1)} km`;
 					case false:
-						return `${n.toFixed(2) * 16} feet`;
+						return `${unitConverter.toMeters(0)} meters`;
 					default:
-						console.warn(
-							"Warning: In Ruler Control, mapZoom is neither smaller nor bigger than constant value"
-						);
-						return `${n.toFixed(2) * 16} miles`;
+						throw new Error("Invalid zoom level");
 				}
 			},
+			
 		});
 
 		//removes an existing ruler
@@ -65,7 +67,10 @@ export default function loadMapControls(map, controls, changeStyle) {
 		map.addControl(ruler, "top-right");
 		controls["ruler"] = ruler;
 
-		map.on("ruler.on", () => console.log("ruler: on"));
+		map.on("ruler.on", () => {
+			
+			console.log("ruler: on")
+		});
 		map.on("ruler.off", () => console.log("ruler: off"));
 	}
 }

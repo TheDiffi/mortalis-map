@@ -12,3 +12,5 @@ export const SOURCE_URLS = {
 	HM_POW26: "mapbox://thediffi.1x0qiwj0",
 	HM_POW24_GRAY: "mapbox://thediffi.2sgsjl0q",
 };
+
+export const TO_METER = 16;
