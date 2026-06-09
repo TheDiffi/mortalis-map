@@ -39,8 +39,7 @@ export function loadPopups(map) {
 }
 
 function markersOnClick(e) {
-	const sanitizedContent = cleanlyParseContent(e.features[0].properties.content ?? "", "No information available");
-	sidebar.setContent(sanitizedContent);
+	showMarkerInSidebar(e.features[0].properties);
 }
 
 function townsOnClick(e, map) {
@@ -51,9 +50,19 @@ function townsOnClick(e, map) {
 		curve: 2,
 		pitch: 25,
 	});
+	showTownInSidebar(e.features[0].properties);
+}
 
-	const sanitizedContent = cleanlyParseContent(e.features[0].properties.content ?? "", "No information available");
-	sidebar.setContent(sanitizedContent);
+function showMarkerInSidebar(properties) {
+	sidebar.setContent(cleanlyParseContent(properties.content ?? "", "No information available"));
+}
+
+function showTownInSidebar(properties) {
+	const sanitizedContent = DOMPurify.sanitize(properties.content ?? "");
+	const html = sanitizedContent
+		? `<h2>${properties.Name}</h2><hr>${sanitizedContent}`
+		: `<h2>${properties.Name}</h2><hr><p>No information available.</p>`;
+	sidebar.setContent(html);
 }
 
 export function popups(e, map) {

@@ -12,11 +12,11 @@
 	"license": "ISC",
 	"type": "module",
 	"dependencies": {
-		"dompurify": "^2.4.3",
+		"dompurify": "^3.4.8",
 		"mapbox-gl": "^2.12.0",
 		"mapbox-gl-controls": "^2.3.5",
 		"marked": "^4.2.12",
-		"nanoid": "^4.0.0"
+		"nanoid": "^5.1.11"
 	},
 	"devDependencies": {
 		"@types/mapbox-gl": "^2.7.10",

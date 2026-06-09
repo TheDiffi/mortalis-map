@@ -7,7 +7,8 @@
         "Name": "Dougan's Hole",
         "type": "city_s",
         "description": "Dougan's Hole was the smallest of the Ten Towns in Icewind Dale. It comprised a meager grouping of buildings arranged around a pair of piers, one long and one short.",
-        "popup": "true"
+        "popup": "true",
+        "content": "<p>Population 30.</p><p>Leader: Elder Dubrace.</p><p>Dougan's Hole has long been known as an unlikable settlement full of hostile, closed-minded, insular folk who shun outsiders. Many residents were part of a single large extended family. But in the last decade, things have gone terribly wrong. When the chardalyn dragon obliterated Dougan's Hole, Good Mead, and half of Easthaven, people returned here to rebuild. But their new structures rose as strange, crooked things, full of holes and barely able to keep out the cold. Fires burning day and night sent plumes of stinking black smoke into the winter sky. Anyone who approached the village disappeared. Nearby wildlife was found mutilated and charred. Gnawed bones, not all from animals, washed up on the lakeshore. Lately, caravans on the Ten Trail have been attacked by wild-eyed marauders, their merchants and guards dragged off into the snow never to be seen again. Residents of nearby Good Mead and Bryn Shander have posted signs on the road in Common and Dwarvish: 'Danger: Do Not Approach', and 'Death Awaits in Dougan's Hell'.</p>"
       },
       "geometry": {
         "coordinates": [
@@ -64,7 +65,8 @@
         "Name": "Termaline",
         "type": "city_m",
         "description": "Termalaine was the second-northernmost settlement of Ten Towns, and the third largest in the region in the 1300s. It was thought to be the gem of Icewind Dale; a charming little village surrounded by striking natural beauty. As delightful as it was, the town maintained a bitter fishing rivalry with the walled settlement of Targos.",
-        "popup": "true"
+        "popup": "true",
+        "content": "<p>Population 800.</p><p>Leader: Speaker Darmo Mazlu.</p><p>In all its years as a gem-mining settlement, Termalaine has never seen a boom like the one it's presently enjoying. After a recent earthquake, new sections of the old mine opened up, bringing a rush of sudden wealth and new faces to town. Though some residents still fish for knucklehead trout, far more are buying pickaxes, shovels, and lanterns to seek their fortunes in the nearby cavern complex. Founded by Calishite settlers who appreciated beauty, Termalaine is the most picturesque settlement in Icewind Dale—and one of the coldest, as it's plagued by dreadful gales that sweep across Maer Dualdon to harry fishers at the southern end of the lake.</p>"
       },
       "geometry": {
         "coordinates": [
@@ -1514,7 +1516,8 @@
         "Name": "Caer-Konig",
         "type": "city_m",
         "description": "The town straddled the round harbor in a semicircle, with a line of buildings at the edge of the harbor, an uphill slope, and a circular round with buildings.",
-        "true": "true"
+        "true": "true",
+        "content": "<p>Population 150.</p><p>Leader: Speaker Pinninah Gelvane (gnome).</p><p>Caer-Konig feels like the end of the world, a last scrap of shelter scraped together at the foot of Icewind Dale's great mountain. The residents here carry on daily life with little thought for the outside world, fishing, hunting, and trapping just as their parents and grandparents did. However, more travelers arrive every day, on their way up to Highplume Station beyond Kelvin's Cairn. For most of its existence, Caer-Konig was ignored as a mere outpost, but it is the best place from which to set out for Kelvin's Cairn or the new settlement of Highplume Station. The people here enjoy friendly relations with Dwarven Valley—although the valley has been eerily quiet of late.</p>"
       },
       "geometry": {
         "coordinates": [
@@ -1532,7 +1535,8 @@
         "Name": "Bremen",
         "type": "city_s",
         "description": "Bremen was the westernmost of the Ten Towns of Icewind Dale. It attracted all manner of gold prospectors, travelers and treasure-hunters.",
-        "popup": "true"
+        "popup": "true",
+        "content": "<p>Population 225.</p><p>Leader: Speaker Ludalos Opkin (human).</p><p>The sleepy village of Bremen was built by dwarf prospectors where the Shaengarne River empties into Maer Dualdon. Its residents are mostly fishers and trappers, but the population swells in summer thanks to seasonal floods. Bremen is built on the river, and it's difficult to reach. In winter, travelers must navigate jagged ice, while warmer months bring flash floods and treacherous currents.</p>"
       },
       "geometry": {
         "coordinates": [
@@ -1580,7 +1584,8 @@
         "Name": "Lonelywood",
         "description": "",
         "id": "",
-        "type": "woods"
+        "type": "woods",
+        "content": "<p>Population 100.</p><p>Leader: Speaker Nimsy Huddle (gnome).</p><p>People go to Lonelywood to disappear. Founded by a Sembian family from Urmlaspyr, this quiet village is populated by loggers, fishers, and scrimshanders, many of whom were once thieves or murderers or otherwise harbor a secret they'll kill to protect. There is no inn or place to spend the night in Lonelywood. Folks here prefer travelers who don't ask questions and who move on quickly. Lonelywood has a custom: never bring up the past. It's quietly understood that those who choose to live here are fleeing from something, and talk focuses on today and tomorrow, never yesterday. Folks who ask questions are run out of town—or vanish.</p>"
       },
       "geometry": {
         "coordinates": [
@@ -3318,7 +3323,8 @@
         "Name": "Kelvin's Carin",
         "description": "",
         "id": "",
-        "type": "landmark"
+        "type": "landmark",
+        "content": "<p>Rising from the desolate tundra of Icewind Dale is a mountain of giant boulders, piled one atop the other until they narrow to a snow-capped peak. Beasts hunt these craggy slopes, giants tread across the broken rills, and dwarf-hewn tunnels pierce its hidden depths. This is Kelvin's Cairn, the heart of Icewind Dale and its highest point. Distances throughout the region are routinely measured from the mountain. Few explorers venture onto the mountain's rocky slopes. No settlement has taken root there. The mountain's face is home to wild beasts and yetis.</p>"
       },
       "geometry": {
         "coordinates": [
@@ -3336,7 +3342,8 @@
         "Name": "Targos",
         "type": "city_b",
         "description": "\n“\nThe folks in Targos are as hard-headed as the trout in their lake. They'd rather stay shut up behind their walls than admit they need help from anyone. Stubborn an' proud, the lot of'em. Makes a dwarf feel right at home.\n”\n— Beorne Steelstrike",
-        "popup": "true"
+        "popup": "true",
+        "content": "<p>Population 1200.</p><p>Leader: Speaker Yaven Rethlinscarp.</p><p>Targos is encircled by a wooden wall that extends into the lake, creating a safe harbor and allowing the town to build and maintain the largest fishing fleet in Ten-Towns. Most of townsfolk are fishers, boat wrights, net menders, scrimshanders, or otherwise engaged in the fishing trade—at least, that's how it seems on the surface. But it's an open secret that the Zhentarim runs this town, and nothing happens here that Zhents don't approve of. Targos was a thriving settlement when Bryn Shander was still 'the camp on the hill', and it has deep ties to the ill-fated city of Luskan. Trade with Bryn Shander benefits both towns.</p>"
       },
       "geometry": {
         "coordinates": [
@@ -3637,7 +3644,8 @@
         "Name": "Lonelywood",
         "type": "city_s",
         "description": "Lonelywood was a town in Ten Towns within the cold region of Icewind Dale. It was known as being the \"first choice\" for rogues seeking a refuge in Icewind Dale.\n“\nMost folk in Lonelywood went there tryin' to forget about somethin'... or tryin' to be forgotten. Folks there mind their own business, an' they expect ye to do the same. Surest way to find trouble in that town is to start askin' questions.\n”\n— Beorne Steelstrike",
-        "popup": "true"
+        "popup": "true",
+        "content": "<p>Population 100.</p><p>Leader: Speaker Nimsy Huddle (gnome).</p><p>People go to Lonelywood to disappear. Founded by a Sembian family from Urmlaspyr, this quiet village is populated by loggers, fishers, and scrimshanders, many of whom were once thieves or murderers or otherwise harbor a secret they'll kill to protect. There is no inn or place to spend the night in Lonelywood. Folks here prefer travelers who don't ask questions and who move on quickly. Lonelywood has a custom: never bring up the past. It's quietly understood that those who choose to live here are fleeing from something, and talk focuses on today and tomorrow, never yesterday. Folks who ask questions are run out of town—or vanish.</p>"
       },
       "geometry": {
         "coordinates": [
@@ -4914,7 +4922,8 @@
         "Name": "Bryn Shandar",
         "type": "city_b",
         "description": "\" What's Bryn Shander like, ye ask? It's sixy score humans, packed together like fish in a barrel an' smelling about as sweet. Its roads are paved with the muck o' the cart horses ye're constantly rubbing shoulders with, an' its alehouses are filled with scoundrels that no other city in Faerûn would have. An' after three weeks on Ten Trail. you'll swear there was no lovelier sight!\n\"\n— Beorne Steelstrike",
-        "popup": "true"
+        "popup": "true",
+        "content": "<p>Population 1800.</p><p>Leader: Speaker Duvessa Shane.</p><p>Those who pass through Bryn Shander's gates find comfort and a chance to stock up on supplies, trade goods, and rumors. Bryn Shander is Icewind Dale's largest town. All kinds of people wander these streets, where trade is the main industry. Built high on a hill, Bryn Shander's wooden walls stand thirty feet high to fence out the bitter winds. The Ten Trail leads to its gate, and for most southerners, who never venture farther into the region, this might as well be the only town in Icewind Dale. As the sole town in the area not on a lake, Bryn Shander's fortunes are founded on trade. Its origin as a crossroads trading post shows in its bustling mercantile spirit and its shops and services. The ten speakers of Ten-Towns gather here to settle disputes, reach agreements, and discuss issues affecting the whole region.</p>"
       },
       "geometry": {
         "coordinates": [
@@ -5003,7 +5012,8 @@
         "Name": "Easthaven",
         "type": "city_b",
         "description": "\n“\nThe area of Easthaven is but one of many tiny, frigid villages clinging to survival. They endure, but it is a hard life, and the only war that comes to Easthaven is the battle against the elements.\n”\n— Everard, Trusted Sword, Order of the Broken Blade, Eleint, 1281 DR.",
-        "popup": "true"
+        "popup": "true",
+        "content": "<p>Population 1000.</p><p>Leader: Speaker Danneth Waylen.</p><p>By the standards of Icewind Dale, Easthaven is a grand place, with fish houses, shops, and taverns sprawling haphazardly from its docks at the southern shore of Lac Dinneshere. Easthaven's population is made up of fishers, tradespeople, merchants, and even a well-to-do upper crust. About ten years ago, a chardalyn dragon attacked Ten-Towns and—after doing extensive damage to Good Mead and Dougan's Hole—it came crashing to its destruction in Easthaven. Dragon's Ditch, a long, north-south furrow through the heart of town, marks this site, and the dragon's mangled remains lie half-buried in the rubble of an old tavern at the south end of town, surrounded by a wooden wall called the Palisade.</p>"
       },
       "geometry": {
         "coordinates": [
@@ -5500,7 +5510,8 @@
         "Name": "Goodmead",
         "type": "city_s",
         "description": "\n“\nCut south off the Eastway after the trees thin out, n' keep walking… that'll be Good Mead.\n”\n— Beorne Steelstrike",
-        "popup": "true"
+        "popup": "true",
+        "content": "<p>Population 200.</p><p>Leader: Speaker Festris Pilcone (wood elf).</p><p>At the edge of Redwaters, nestled between blue-green pines, carved wooden dinosaurs grace the pinnacle of Newmead Hall, from which the buzzing of tens of thousands of bees can be clearly heard. The residents of the village are dedicated to producing, perfecting, and delivering honey mead. Good Mead was founded by immigrants from Chult and the Vilhon Reach, which explains its squat dwellings richly adorned with carvings of dinosaurs and serpents. Bees from Newmead Hall are ubiquitous throughout the settlement. More than ten years ago, after Good Mead was razed by the chardalyn dragon, the people of Ten-Towns banded together to rebuild it.</p>"
       },
       "geometry": {
         "coordinates": [
@@ -5518,7 +5529,8 @@
         "Name": "Caer-Dineval",
         "type": "city_m",
         "description": "Caer-Dineval was located on the northwestern bank of Lac Dinneshere, not far south of Caer-Konig. It was situated in a half-circle around Knucklehead Harbor, with the Caer castle overlooking the harbor from the Cliffs of Dinev in the east.",
-        "popup": "true"
+        "popup": "true",
+        "content": "<p>Population 90.</p><p>Leader: Speaker Crannoc Siever.</p><p>High atop a lakeside crag stands a small fortress shrouded in bitter cold and unending darkness. The village below is in a state of siege, with every door locked, every citizen armed, and every structure marked with symbols of Auril. Most of the village's residents are direct descendants of its settlers, fighting for their ancestral land.</p><p>Crannoc Siever is speaker of the Caer-Dineval but the settlement's real leader is the orc Yldreth, a frost druid rejected by the Emerald Enclave. Yldreth's second-in-command is the white dragonborn Nymetra Myskyn, formerly of Easthaven.</p>"
       },
       "geometry": {
         "coordinates": [
