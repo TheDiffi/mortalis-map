@@ -10,7 +10,7 @@ class MapManager {
 	constructor() {
 		// create the map
 		this.mapbox = new mapboxgl.Map({
-			accessToken: "pk.eyJ1IjoidGhlZGlmZmkiLCJhIjoiY2xjeGpuYm92MjN4cjNybXNremFtMHd3aiJ9.8QG0LO8bSAfYA0zROCmEmQ",
+			accessToken: process.env.MAPBOX_TOKEN,
 			container: "map", // container ID
 			style: "mapbox://styles/thediffi/cld7hz283000j01ockqljc73u", // style URL
 			center: [0.02, -0.02], // starting position [lng, lat]
