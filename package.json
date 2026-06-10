@@ -5,8 +5,9 @@
 	"scripts": {
 		"start": "parcel src/index.html",
 		"dev": "parcel src/index.html",
-		"build": "parcel build --no-optimize src/index.html",
-		"test": "jest"
+		"build": "parcel build --no-optimize --public-url ./ src/index.html",
+		"test": "jest",
+		"deploy": "npm run build && rsync -avz --delete dist/ admin@davidpenn.dev:/usr/share/nginx/homepage/map/"
 	},
 	"author": "",
 	"license": "ISC",
